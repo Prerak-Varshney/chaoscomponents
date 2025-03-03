@@ -63,8 +63,8 @@ const App = () => {
             alertType='black'
             alertHeading='Success'
             alertText='Button clicked successfully!'
+            borderColor='#fff'
           />
-        
       }
 
     </div>  
