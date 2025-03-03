@@ -1,7 +1,12 @@
-import { Button } from './index';
-const app = () => {
+import { useState } from 'react';
+import { Button, Input } from './index';
+
+const App = () => {
+
+  const [name, setName] = useState<string>('');
+
   return (
-    <div>
+    <div className='bg-black w-full h-screen'>
       <Button 
         label={"Submit"}
         // width='200px'
@@ -12,10 +17,22 @@ const app = () => {
         rounded={'sm'}
         hoverBgColor='#000'
         hoverTextColor='#fff'
-        onClick={() => console.log('Button clicked')}
+        onClick={() => console.log(name)}
+      />
+
+      <div className='h-4' />
+
+      <Input 
+        type={"text"}
+        title={"Name"}
+        value={name}
+        setValue={setName}
+        borderColor='#f00'
+        textColor='#fff'
+        outlineColor='#f00'
       />
     </div>  
   )
 }
 
-export default app;
+export default App;
