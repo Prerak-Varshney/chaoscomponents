@@ -8,6 +8,14 @@ interface ToastProps {
     bgColor?: string;
     textColor?: string;
     borderColor?: string;
+    button?: boolean;
+    buttonLabel?: string;
+    buttonBackgroundColor?: string;
+    buttonTextColor?: string;
+    buttonRounded?: 'none' | 'sm' | 'md' | 'lg' | 'full';
+    buttonBorderColor?: string;
+    buttonOnClick?: () => void;
+    children?: React.ReactNode;
 }
 
 const Toast = ({ 
@@ -17,6 +25,14 @@ const Toast = ({
     bgColor='black', 
     textColor='white', 
     borderColor='white',
+    button=false,
+    buttonLabel,
+    buttonBackgroundColor,
+    buttonTextColor,
+    buttonRounded,
+    buttonBorderColor,
+    buttonOnClick,
+    children
 }: ToastProps) => {
 
     const [toastPosition, setToastPosition] = useState<string>('-right-50');
@@ -57,6 +73,29 @@ const Toast = ({
             </button>
             {toastHeading && <div className='text-base font-bold'>{toastHeading}</div>}
             {toastText}
+            {
+                button && (
+                    <button 
+                        className={`
+                            px-2 py-1 border border-white
+                            ${buttonRounded === 'none' && 'rounded-none'}
+                            ${buttonRounded === 'sm' && 'rounded-sm'}
+                            ${buttonRounded === 'md' && 'rounded-md'}
+                            ${buttonRounded === 'lg' && 'rounded-lg'}
+                            ${buttonRounded === 'full' && 'rounded-full'}
+                        `}
+                        style={{
+                            backgroundColor: buttonBackgroundColor || bgColor,
+                            color: buttonTextColor || textColor,
+                            borderColor: buttonBorderColor || borderColor
+                        }}
+                        onClick={buttonOnClick}
+                    >
+                        {buttonLabel}
+                    </button>
+                )
+            }
+            {children}
         </div>
     )
 }

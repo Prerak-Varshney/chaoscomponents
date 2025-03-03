@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Button, Input, Alert, Toast } from './index';
+import { Button, Input, Alert, Toast, ToolTip, Badge } from './index';
 
 const App = () => {
 
@@ -56,6 +56,23 @@ const App = () => {
 
       <div className='h-4' />
 
+      <Badge
+        label='Badge'
+        // width='200px'
+        // height='40px'
+      />
+
+      <div className='h-4' />
+      
+      <div className='w-full flex justify-center items-center'>
+      <ToolTip 
+        label='ToolTip'
+        toolTipLabel='This is a tooltip'
+        // width='200px'
+        // height='40px'
+      />
+      </div>
+  
       {
         buttonClicked && 
           // <Alert 
@@ -69,7 +86,8 @@ const App = () => {
           <Toast 
             toastHeading='Success'
             toastText = 'This is a very long text'
-          />
+          >
+          </Toast>
       }
 
     </div>  

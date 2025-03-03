@@ -38,7 +38,7 @@ const Button = ({
     return (
         <button 
             className={`
-                transition-all duration-300 text-white bg-blue-500 disabled:opacity-70
+                transition-all duration-300 bg-blue-500 disabled:opacity-70
                 ${paddingEnabled && 'px-4 py-1'}
                 ${rounded && rounded === 'none' && 'rounded-none'}
                 ${rounded && rounded === 'sm' && 'rounded-sm'}

@@ -7,6 +7,8 @@ interface AlertProps {
     alertText: string,
     borderColor?: string,
     rounded?: 'none' | 'sm' | 'md' | 'lg' | 'full';
+    // button? : boolean;
+    children?: React.ReactNode;
 }
 
 const Alert = ({
@@ -14,7 +16,9 @@ const Alert = ({
     alertHeading,
     alertText,
     borderColor = "transparent",
-    rounded = "none"
+    rounded = "none",
+    // button = true,
+    children,
 }: AlertProps) => {
     const [alertPosition, setAlertPosition] = useState<string>('-top-30');
     useEffect(() => {
@@ -51,6 +55,7 @@ const Alert = ({
                 {alertHeading && <div className='text-base font-bold'>{alertHeading}</div>}
                 {alertText}
             </div>
+            {children}
         </div>
     )
 }
