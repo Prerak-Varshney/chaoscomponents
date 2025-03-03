@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-
+import { EyeClosed, Eye } from 'lucide-react';
 interface InputProps {
     placeholder: string;
     type?: string;
@@ -84,7 +84,7 @@ const Input = ({
                         style={{ color: textColor }}
                         onClick={() => setButtonType(buttonType === 'password' ? 'text' : 'password')}
                     >
-                        show
+                        {buttonType === 'password' ? <EyeClosed size={16} /> : <Eye size={16} />}
                     </button>
                 }
             </div>
@@ -122,7 +122,7 @@ const Input = ({
                         style={{ color: textColor }}
                         onClick={() => setButtonType(buttonType === 'password' ? 'text' : 'password')}
                     >
-                        show
+                        {buttonType === 'password' ? <EyeClosed size={16} /> : <Eye size={16} />}
                     </button>
                 }
 
