@@ -80,7 +80,7 @@ const Input = ({
                 {
                     type === 'password' &&
                     <button 
-                        className={`absolute transition-all duration-300 -translate-y-1/2 transalate-y-[-50%] top-1/2 right-2 z-10 bg-transparent opacity-60 hover:opacity-100 cursor-pointer text-xs`}
+                        className={`absolute transition-all duration-300 -translate-y-1/2 top-1/2 right-2 z-10 bg-transparent opacity-60 hover:opacity-100 cursor-pointer text-xs`}
                         style={{ color: textColor }}
                         onClick={() => setButtonType(buttonType === 'password' ? 'text' : 'password')}
                     >
@@ -118,7 +118,7 @@ const Input = ({
                 {
                     type === 'password' &&
                     <button 
-                        className={`absolute transition-all duration-300 -translate-y-1/2 transalate-y-[-50%] top-1/2 right-2 z-10 bg-transparent opacity-60 hover:opacity-100 cursor-pointer text-xs`}
+                        className={`absolute transition-all duration-300 -translate-y-1/2 top-1/2 right-2 z-10 bg-transparent opacity-60 hover:opacity-100 cursor-pointer text-xs`}
                         style={{ color: textColor }}
                         onClick={() => setButtonType(buttonType === 'password' ? 'text' : 'password')}
                     >

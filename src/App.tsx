@@ -1,10 +1,11 @@
 import { useState } from 'react';
-import { Button, Input } from './index';
+import { Button, Input, Alert } from './index';
 
 const App = () => {
 
   const [name, setName] = useState<string>('');
   const [password, setPassword] = useState<string>('');
+  const [buttonClicked, setButtonClicked] = useState<boolean>(false);
 
   return (
     <div>
@@ -49,8 +50,23 @@ const App = () => {
         hoverBgColor='#f40'
         hoverTextColor='#fff'
         borderColor='#fff'
-        onClick={() => console.log(name)}
+        onClick={() => {
+          setButtonClicked((prev) => !prev);
+        }}
       />
+
+      <div className='h-4' />
+
+      {
+        buttonClicked && 
+          <Alert 
+            alertType='black'
+            alertHeading='Success'
+            alertText='Button clicked successfully!'
+          />
+        
+      }
+
     </div>  
   )
 }
