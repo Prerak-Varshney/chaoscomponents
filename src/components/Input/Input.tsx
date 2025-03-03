@@ -25,7 +25,7 @@ const Input = ({
     outlineColor = 'rgb(0, 150, 255)',
     textColor = 'black',
     rounded = 'sm',
-    type = 'password',
+    type = 'text',
     disabled = false,
     borderColor = 'black',
     value,

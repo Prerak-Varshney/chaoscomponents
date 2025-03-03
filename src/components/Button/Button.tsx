@@ -11,6 +11,7 @@ interface ButtonProps {
     rounded?: 'none'| 'sm'| 'md'| 'lg'| 'full';
     hoverBgColor?: string;
     hoverTextColor?: string;
+    borderColor?: string;
 }
 
 const Button = ({ 
@@ -23,6 +24,7 @@ const Button = ({
     rounded = 'sm',
     hoverBgColor = 'black',
     hoverTextColor = 'white',
+    borderColor = 'transparent',
     onClick 
 }: ButtonProps) => {
 
@@ -48,7 +50,8 @@ const Button = ({
                 backgroundColor: bgColor,
                 color: textColor,
                 width: paddingEnabled ? 'auto' : width,
-                height: paddingEnabled ? 'auto' : height
+                height: paddingEnabled ? 'auto' : height,
+                border: `1px solid ${borderColor}`
             }}
             onMouseEnter={(e) => {
                 e.currentTarget.style.backgroundColor = hoverBgColor;
