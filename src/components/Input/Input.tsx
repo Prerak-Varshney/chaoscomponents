@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 
 interface InputProps {
     placeholder: string;
-    type: string;
+    type?: string;
     width?: string;
     height?: string;
     disabled?: boolean;
@@ -18,14 +18,14 @@ interface InputProps {
 
 const Input = ({
     placeholder,
-    buttonStyle = 'normal',
+    buttonStyle = 'google',
     width = '200px',
     height = '40px',
     bgColor = '#000',
     outlineColor = 'rgb(0, 150, 255)',
     textColor = 'black',
     rounded = 'sm',
-    type = 'text',
+    type = 'password',
     disabled = false,
     borderColor = 'black',
     value,
@@ -33,14 +33,14 @@ const Input = ({
 }: InputProps) => {
 
     const [ isFocused, setIsFocused ] = useState<boolean>(false);
+    const [ buttonType, setButtonType ] = useState<string>(type);
 
     useEffect(() => {
         if(value && setValue) setValue(value);
     }, [value, setValue]);
 
     return (
-        
-        buttonStyle === 'google' ? (
+        buttonStyle === 'normal' ? (
             <div 
                 className={`relative w-fit ${disabled && 'opacity-70'}`}
                 style = {{ backgroundColor: bgColor }}
@@ -61,7 +61,7 @@ const Input = ({
                         outline: isFocused ? '1px solid ' + outlineColor : '1px solid transparent',
                         border: isFocused ? '1px solid transparent' : '1px solid ' + borderColor,
                     }}
-                    type={type} 
+                    type={buttonType} 
                     disabled={disabled}
                     onFocus={() => setIsFocused(true)}
                     onBlur={() => setIsFocused(false)}
@@ -77,11 +77,22 @@ const Input = ({
                 >
                     {placeholder}
                 </label>
+                {
+                    type === 'password' &&
+                    <button 
+                        className={`absolute transition-all duration-300 -translate-y-1/2 transalate-y-[-50%] top-1/2 right-2 z-10 bg-transparent opacity-60 hover:opacity-100 cursor-pointer text-xs`}
+                        style={{ color: textColor }}
+                        onClick={() => setButtonType(buttonType === 'password' ? 'text' : 'password')}
+                    >
+                        show
+                    </button>
+                }
             </div>
         ) : (
-            <input 
+            <div className={`w-fit relative`}>
+                <input 
                     className={`
-                        px-2 transition-all duration-300
+                        px-2 transition-all duration-300 disabled:opacity-70
                         ${rounded && rounded === 'none' && 'rounded-none'}
                         ${rounded && rounded === 'sm' && 'rounded-sm'}
                         ${rounded && rounded === 'md' && 'rounded-md'}
@@ -96,7 +107,7 @@ const Input = ({
                         outline: isFocused ? '1px solid ' + outlineColor : '1px solid transparent',
                         border: isFocused ? '1px solid transparent' : '1px solid ' + borderColor,
                     }}
-                    type={type} 
+                    type={buttonType} 
                     disabled={disabled}
                     onFocus={() => setIsFocused(true)}
                     onBlur={() => setIsFocused(false)}
@@ -104,6 +115,18 @@ const Input = ({
                     onChange={(e) => setValue && setValue(e.target.value)}
                     placeholder={placeholder}
                 />
+                {
+                    type === 'password' &&
+                    <button 
+                        className={`absolute transition-all duration-300 -translate-y-1/2 transalate-y-[-50%] top-1/2 right-2 z-10 bg-transparent opacity-60 hover:opacity-100 cursor-pointer text-xs`}
+                        style={{ color: textColor }}
+                        onClick={() => setButtonType(buttonType === 'password' ? 'text' : 'password')}
+                    >
+                        show
+                    </button>
+                }
+
+            </div>
         )
         
     )

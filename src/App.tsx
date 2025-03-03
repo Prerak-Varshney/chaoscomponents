@@ -23,9 +23,9 @@ const App = () => {
       <div className='h-4' />
 
       <Input 
-        type={"text"}
+        // type={"text"}
         placeholder={"Name"}
-        buttonStyle='normal'
+        // buttonStyle='normal'
         value={name}
         setValue={setName}
         borderColor='#0af'
