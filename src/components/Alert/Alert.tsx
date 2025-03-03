@@ -5,14 +5,16 @@ interface AlertProps {
     alertType: 'success' | 'error' | 'warning' | 'info' | 'black';
     alertHeading?: string;
     alertText: string,
-    borderColor?: string
+    borderColor?: string,
+    rounded?: 'none' | 'sm' | 'md' | 'lg' | 'full';
 }
 
 const Alert = ({
     alertType = "info",
     alertHeading,
     alertText,
-    borderColor = "transparent"
+    borderColor = "transparent",
+    rounded = "none"
 }: AlertProps) => {
     const [alertPosition, setAlertPosition] = useState<string>('-top-30');
     useEffect(() => {
@@ -31,6 +33,11 @@ const Alert = ({
                 ${alertType === 'warning' && 'bg-orange-500'}
                 ${alertType === 'info' && 'bg-blue-500'}
                 ${alertType === 'black' && 'bg-black'}
+                ${rounded === 'none' && 'rounded-none'}
+                ${rounded === 'sm' && 'rounded-sm'}
+                ${rounded === 'md' && 'rounded-md'}
+                ${rounded === 'lg' && 'rounded-lg'}
+                ${rounded === 'full' && 'rounded-full'}
             `}
             style={{ border: `1px solid ${borderColor}` }}
         >

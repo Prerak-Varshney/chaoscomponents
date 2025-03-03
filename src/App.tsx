@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Button, Input, Alert } from './index';
+import { Button, Input, Alert, Toast } from './index';
 
 const App = () => {
 
@@ -58,11 +58,17 @@ const App = () => {
 
       {
         buttonClicked && 
-          <Alert 
-            alertType='black'
-            alertHeading='Success'
-            alertText='Button clicked successfully!'
-            borderColor='#fff'
+          // <Alert 
+          //   alertType='black'
+          //   alertHeading='Success'
+          //   alertText='Button clicked successfully!'
+          //   borderColor='#fff'
+          //   rounded='full'
+          // />
+
+          <Toast 
+            toastHeading='Success'
+            toastText = 'This is a very long text'
           />
       }
 
