@@ -24,12 +24,14 @@ const App = () => {
 
       <Input 
         type={"text"}
-        title={"Name"}
+        placeholder={"Name"}
+        buttonStyle='normal'
         value={name}
         setValue={setName}
-        borderColor='#f00'
+        borderColor='#0af'
         textColor='#fff'
         outlineColor='#f00'
+        bgColor='#000'
       />
     </div>  
   )
