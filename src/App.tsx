@@ -14,7 +14,6 @@ const App = () => {
       <Input 
         type={"text"}
         placeholder={"Name"}
-        // buttonStyle='normal'
         value={name}
         setValue={setName}
         borderColor='#0af'
@@ -28,7 +27,7 @@ const App = () => {
       <Input 
         type={"password"}
         placeholder={"Password"}
-        buttonStyle='normal'
+        buttonStyle='google'
         value={password}
         setValue={setPassword}
         borderColor='#0af'

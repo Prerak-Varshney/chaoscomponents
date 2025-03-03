@@ -38,9 +38,7 @@ const Alert = ({
                 className={`absolute top-1 right-1 cursor-pointer text-white transition-all duration-300 hover:text-gray-300`}
                 onClick={() => setAlertPosition('-top-30')}
             >
-                <X 
-                    size={16}
-                />
+                <X size={16} />
             </button>
             <div className={`w-full h-full text-white flex flex-col justify-center ${alertHeading ? 'items-start pl-10' : 'items-center'}`}>
                 {alertHeading && <div className='text-base font-bold'>{alertHeading}</div>}

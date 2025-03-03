@@ -18,7 +18,7 @@ interface InputProps {
 
 const Input = ({
     placeholder,
-    buttonStyle = 'google',
+    buttonStyle = 'normal',
     width = '200px',
     height = '40px',
     bgColor = '#000',
@@ -40,7 +40,7 @@ const Input = ({
     }, [value, setValue]);
 
     return (
-        buttonStyle === 'normal' ? (
+        buttonStyle === 'google' ? (
             <div 
                 className={`relative w-fit ${disabled && 'opacity-70'}`}
                 style = {{ backgroundColor: bgColor }}
