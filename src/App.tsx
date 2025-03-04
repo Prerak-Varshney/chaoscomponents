@@ -8,7 +8,7 @@ const App = () => {
   const [buttonClicked, setButtonClicked] = useState<boolean>(false);
 
   return (
-    <div>
+    <div className='flex items-center justify-center flex-col'>
       <div className='h-4' />
 
       <Input 
@@ -77,7 +77,7 @@ const App = () => {
       <ToolTip 
         label='ToolTip 2'
         toolTipLabel='This is a tip !!!'
-        toolTipPosition='left'
+        toolTipPosition='top'
         toolTipBgColor='#222'
         toolTipTextColor='#fff'
         // width='200px'

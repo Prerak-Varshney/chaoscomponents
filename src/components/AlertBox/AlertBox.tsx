@@ -49,7 +49,7 @@ const AlertBox = ({
 
     return (
         <div 
-            className={`fixed top-0 w-full h-screen flex items-center justify-center`}
+            className={`fixed top-0 w-full h-screen flex items-center justify-center z-[9999]`}
             style={{
                 backgroundColor: bgBlurColor,
                 opacity,

@@ -105,7 +105,7 @@ const ToolTip = ({
             {isHovered && (
                 <div 
                     className={`
-                        transition-all duration-300 absolute z-10
+                        transition-all duration-300 absolute z-[999]
                         ${toolTipPaddingEnabled && 'px-4 py-1'}
                         ${toolTipRounded && toolTipRounded === 'none' && 'rounded-none'}
                         ${toolTipRounded && toolTipRounded === 'sm' && 'rounded-sm'}
