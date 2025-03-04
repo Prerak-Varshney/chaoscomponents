@@ -34,17 +34,15 @@ const AlertBox = ({
         if(width !== 'fit-content' || height !== 'auto') setPaddingEnabled(false);
     }, [width, height]);
 
-    const [alertBoxWidth, setAlertBoxWidth] = useState<string>('0');
-    const [alertBoxHeight, setAlertBoxHeight] = useState<string>('0');
+    const [alertBoxOpacity, setAlertBoxOpacity] = useState<string>('0');
 
     useEffect(() => {
-        setAlertBoxWidth(width);
-        setAlertBoxHeight(height);
+        setAlertBoxOpacity('1');
     }, []);
 
     return (
         <div 
-            className={`fixed top-0 w-full h-screen flex items-center justify-center border border-red-500`}
+            className={`fixed top-0 w-full h-screen flex items-center justify-center`}
             style={{
                 backgroundColor: bgBlurColor,
                 opacity,
@@ -52,7 +50,7 @@ const AlertBox = ({
         >
             <div 
                 className={`
-                    flex flex-col items-center justify-center gap-2 text-base transition-all duration-1000
+                    flex flex-col items-center justify-center gap-2 text-base transition-all duration-300
                     ${paddingEnabled && 'px-5 py-4'}
                     ${rounded && rounded === 'none' && 'rounded-none'}
                     ${rounded && rounded === 'sm' && 'rounded-sm'}
@@ -61,12 +59,13 @@ const AlertBox = ({
                     ${rounded && rounded === 'full' && 'rounded-full'}
                 `}
                 style = {{
-                    width: paddingEnabled ? 'fit-content' : alertBoxWidth,
-                    height: paddingEnabled ? 'auto' : alertBoxHeight,
+                    width: paddingEnabled ? 'fit-content' : width,
+                    height: paddingEnabled ? 'auto' : height,
                     border: `1px solid ${borderColor}`,
                     color: textColor,
                     backgroundColor: bgColor,
                     fontSize: textSize,
+                    opacity: alertBoxOpacity,
                 }}
             >
                 {label && <span>{label}</span>}
