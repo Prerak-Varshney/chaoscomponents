@@ -38,6 +38,13 @@ const AlertBox = ({
 
     useEffect(() => {
         setAlertBoxOpacity('1');
+
+        document.body.style.overflow = 'hidden';
+        
+        return () => {
+            document.body.style.overflow = '';
+        };
+
     }, []);
 
     return (
