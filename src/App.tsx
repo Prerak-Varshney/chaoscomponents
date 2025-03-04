@@ -64,11 +64,20 @@ const App = () => {
 
       <div className='h-4' />
       
-      <div className='w-full flex justify-center items-center'>
+      <div className='w-full flex justify-center items-center gap-4'>
       <ToolTip 
         label='ToolTip'
         toolTipLabel='This is a tip !!!'
-        toolTipPosition='bottom'
+        toolTipPosition='right'
+        toolTipBgColor='#222'
+        toolTipTextColor='#fff'
+        // width='200px'
+        // height='40px'
+      />
+      <ToolTip 
+        label='ToolTip 2'
+        toolTipLabel='This is a tip !!!'
+        toolTipPosition='left'
         toolTipBgColor='#222'
         toolTipTextColor='#fff'
         // width='200px'
@@ -101,13 +110,13 @@ const App = () => {
             <div className='w-full flex justify-center items-center gap-4'>
               <Button  
                 label={"Save"}
-                width='100px'
-                height='40px'
+                // width='100px'
+                // height='40px'
                 disabled={false}
                 bgColor='#08f'
                 textColor='#fff'
                 rounded={'sm'}
-                hoverBgColor='#f40'
+                hoverBgColor='#09f'
                 hoverTextColor='#fff'
                 borderColor='#fff'
                 onClick={() => {
@@ -117,8 +126,8 @@ const App = () => {
 
               <Button 
                 label={"Close"}
-                width='100px'
-                height='40px'
+                // width='100px'
+                // height='40px'
                 disabled={false}
                 bgColor='#f00'
                 textColor='#fff'

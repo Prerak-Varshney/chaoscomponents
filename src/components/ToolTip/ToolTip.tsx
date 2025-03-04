@@ -105,7 +105,7 @@ const ToolTip = ({
             {isHovered && (
                 <div 
                     className={`
-                        transition-all duration-300 absolute
+                        transition-all duration-300 absolute z-10
                         ${toolTipPaddingEnabled && 'px-4 py-1'}
                         ${toolTipRounded && toolTipRounded === 'none' && 'rounded-none'}
                         ${toolTipRounded && toolTipRounded === 'sm' && 'rounded-sm'}
@@ -115,8 +115,8 @@ const ToolTip = ({
                         
                         ${toolTipPosition === 'top' && '-translate-y-1/2 -top-10'}
                         ${toolTipPosition === 'bottom' && 'translate-y-1/2 -bottom-10'}
-                        ${toolTipPosition === 'right' && 'translate-x-1/2 -translate-y-1/2 top-1/2 -right-20'}
-                        ${toolTipPosition === 'left' && '-translate-x-1/2 -translate-y-1/2 top-1/2 -left-20'}  
+                        ${toolTipPosition === 'right' && 'translate-x-1/2 -translate-y-1/2 top-1/2 -right-19'}
+                        ${toolTipPosition === 'left' && '-translate-x-1/2 -translate-y-1/2 top-1/2 -left-19'}  
                     `}
                     style={{
                         width: toolTipPaddingEnabled ? 'auto' : toolTipWidth,
