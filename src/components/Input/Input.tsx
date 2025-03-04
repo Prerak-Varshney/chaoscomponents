@@ -12,6 +12,8 @@ interface InputProps {
     borderColor?: string;
     rounded?: 'none'| 'sm'| 'md'| 'lg'| 'full';
     buttonStyle?: 'google' | 'normal';
+    minLength?: number;
+    maxLength?: number;
     value?: string;
     setValue?: (value: string) => void;
 }
@@ -28,6 +30,8 @@ const Input = ({
     type = 'text',
     disabled = false,
     borderColor = 'black',
+    minLength = 1,
+    maxLength,
     value,
     setValue
 }: InputProps) => {
@@ -65,6 +69,8 @@ const Input = ({
                     disabled={disabled}
                     onFocus={() => setIsFocused(true)}
                     onBlur={() => setIsFocused(false)}
+                    minLength={minLength}
+                    maxLength={maxLength}
                     value={value}
                     onChange={(e) => setValue && setValue(e.target.value)}
                 />
@@ -108,12 +114,14 @@ const Input = ({
                         border: isFocused ? '1px solid transparent' : '1px solid ' + borderColor,
                     }}
                     type={buttonType} 
+                    placeholder={placeholder}
                     disabled={disabled}
                     onFocus={() => setIsFocused(true)}
                     onBlur={() => setIsFocused(false)}
+                    minLength={minLength}
+                    maxLength={maxLength}
                     value={value}
                     onChange={(e) => setValue && setValue(e.target.value)}
-                    placeholder={placeholder}
                 />
                 {
                     type === 'password' &&
