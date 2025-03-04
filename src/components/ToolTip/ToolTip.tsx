@@ -113,8 +113,8 @@ const ToolTip = ({
                         ${toolTipRounded && toolTipRounded === 'lg' && 'rounded-lg'}
                         ${toolTipRounded && toolTipRounded === 'full' && 'rounded-full'}
                         
-                        ${toolTipPosition === 'top' && '-translate-y-1/2 -top-13'}
-                        ${toolTipPosition === 'bottom' && 'translate-y-1/2 -bottom-13'}
+                        ${toolTipPosition === 'top' && '-translate-y-1/2 -top-10'}
+                        ${toolTipPosition === 'bottom' && 'translate-y-1/2 -bottom-10'}
                         ${toolTipPosition === 'right' && 'translate-x-1/2 -translate-y-1/2 top-1/2 -right-20'}
                         ${toolTipPosition === 'left' && '-translate-x-1/2 -translate-y-1/2 top-1/2 -left-20'}  
                     `}

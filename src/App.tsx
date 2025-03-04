@@ -68,7 +68,7 @@ const App = () => {
       <ToolTip 
         label='ToolTip'
         toolTipLabel='This is a tip !!!'
-        toolTipPosition='top'
+        toolTipPosition='bottom'
         toolTipBgColor='#222'
         toolTipTextColor='#fff'
         // width='200px'
