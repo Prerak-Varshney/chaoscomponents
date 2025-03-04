@@ -72,7 +72,7 @@ const Toast = ({
                 <X size={16} />
             </button>
             {toastHeading && <div className='text-base font-bold'>{toastHeading}</div>}
-            {toastText}
+            {toastText && toastText}
             {
                 button && (
                     <button 

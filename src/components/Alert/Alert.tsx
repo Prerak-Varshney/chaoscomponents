@@ -4,10 +4,9 @@ import { X } from 'lucide-react';
 interface AlertProps {
     alertType: 'success' | 'error' | 'warning' | 'info' | 'black';
     alertHeading?: string;
-    alertText: string,
+    alertText?: string,
     borderColor?: string,
     rounded?: 'none' | 'sm' | 'md' | 'lg' | 'full';
-    // button? : boolean;
     children?: React.ReactNode;
 }
 
@@ -17,7 +16,6 @@ const Alert = ({
     alertText,
     borderColor = "transparent",
     rounded = "none",
-    // button = true,
     children,
 }: AlertProps) => {
     const [alertPosition, setAlertPosition] = useState<string>('-top-30');
@@ -53,7 +51,7 @@ const Alert = ({
             </button>
             <div className={`w-full h-full text-white flex flex-col justify-center ${alertHeading ? 'items-start pl-10' : 'items-center'}`}>
                 {alertHeading && <div className='text-base font-bold'>{alertHeading}</div>}
-                {alertText}
+                {alertText && alertText}
             </div>
             {children}
         </div>

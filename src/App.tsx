@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Button, Input, Alert, Toast, ToolTip, Badge } from './index';
+import { Button, Input, Alert, Toast, ToolTip, Badge, AlertBox } from './index';
 
 const App = () => {
 
@@ -67,7 +67,10 @@ const App = () => {
       <div className='w-full flex justify-center items-center'>
       <ToolTip 
         label='ToolTip'
-        toolTipLabel='This is a tooltip'
+        toolTipLabel='This is a tip !!!'
+        toolTipPosition='top'
+        toolTipBgColor='#222'
+        toolTipTextColor='#fff'
         // width='200px'
         // height='40px'
       />
@@ -83,11 +86,53 @@ const App = () => {
           //   rounded='full'
           // />
 
-          <Toast 
-            toastHeading='Success'
-            toastText = 'This is a very long text'
+          // <Toast 
+          //   toastHeading='Success'
+          //   toastText = 'This is a very long text'
+          // >
+          // </Toast>
+          <AlertBox 
+            label='This is an alert dialog box!!!'
+            borderColor='#fff'
+            bgColor='transparent'
+            // width='500px'
+            // height='200px'
           >
-          </Toast>
+            <div className='w-full flex justify-center items-center gap-4'>
+              <Button  
+                label={"Save"}
+                width='100px'
+                height='40px'
+                disabled={false}
+                bgColor='#08f'
+                textColor='#fff'
+                rounded={'sm'}
+                hoverBgColor='#f40'
+                hoverTextColor='#fff'
+                borderColor='#fff'
+                onClick={() => {
+                  setButtonClicked((prev) => !prev);
+                }}
+              />
+
+              <Button 
+                label={"Close"}
+                width='100px'
+                height='40px'
+                disabled={false}
+                bgColor='#f00'
+                textColor='#fff'
+                rounded={'sm'}
+                hoverBgColor='#f40'
+                hoverTextColor='#fff'
+                borderColor='#fff'
+                onClick={() => {
+                  setButtonClicked((prev) => !prev);
+                }}
+              />
+            </div>
+
+          </AlertBox>
       }
 
     </div>  
