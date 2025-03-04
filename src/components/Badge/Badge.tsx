@@ -7,6 +7,7 @@ interface BadgeProps {
     height?: string;
     bgColor?: string;
     textColor?: string;
+    textSize?: 'xs' | 'sm' | 'md' | 'lg';
     borderColor?: string;
     rounded?: 'none'| 'sm'| 'md'| 'lg'| 'full';
     crossButton?: boolean;
@@ -20,6 +21,7 @@ const Badge = ({
     height = 'auto',
     bgColor = 'white',
     textColor = 'black',
+    textSize = 'md',
     borderColor = 'transparent',
     rounded = 'sm',
     crossButton = false,
@@ -39,12 +41,16 @@ const Badge = ({
             className={`
                 relative transition-all duration-300 bg-blue-500 disabled:opacity-70
                 flex items-center justify-center
-                ${paddingEnabled && 'px-4 py-1'}
+                ${paddingEnabled && ''}
                 ${rounded && rounded === 'none' && 'rounded-none'}
                 ${rounded && rounded === 'sm' && 'rounded-sm'}
                 ${rounded && rounded === 'md' && 'rounded-md'}
                 ${rounded && rounded === 'lg' && 'rounded-lg'}
                 ${rounded && rounded === 'full' && 'rounded-full'}
+                ${textSize === 'xs' && 'text-xs'}
+                ${textSize === 'sm' && 'text-sm'}
+                ${textSize === 'md' && 'text-md'}
+                ${textSize === 'lg' && 'text-lg'}
             `}
             style={{
                 backgroundColor: bgColor,
@@ -58,7 +64,7 @@ const Badge = ({
 
             { crossButton && (
                 <button
-                    className='absolute -translate-y-1/2 -right-1 top-0 rounded-full'
+                    className='absolute -translate-y-1/2 -right-2 top-0 rounded-full'
                     onClick={onCrossClick}
                     style={{
                         backgroundColor: crossButtonColor,

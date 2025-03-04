@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 
 interface ToolTipProps {
     label: string;
@@ -51,6 +51,8 @@ const ToolTip = ({
     const [paddingEnabled, setPaddingEnabled] = useState<boolean>(true);
     const [toolTipPaddingEnabled, setToolTipPaddingEnabled] = useState<boolean>(true);
     const [isHovered, setIsHovered] = useState<boolean>(false);
+
+    const timeOutRef = useRef<ReturnType<typeof setTimeout> | null>(null); 
     
     useEffect(() => {
         if(width !== 'auto' || height !== 'auto') setPaddingEnabled(false);
@@ -82,16 +84,17 @@ const ToolTip = ({
                 onMouseEnter={(e) => {
                     e.currentTarget.style.backgroundColor = hoverBgColor;
                     e.currentTarget.style.color = hoverTextColor;
-                    setTimeout(() => {
-                        setIsHovered(true);
+                    timeOutRef.current = setTimeout(() => {
+                        setIsHovered(true)
                     }, 300);
                 }}
                 onMouseLeave={(e) => {
                     e.currentTarget.style.backgroundColor = bgColor;
                     e.currentTarget.style.color = textColor;
-                    setTimeout(() => {
-                        setIsHovered(false);
-                    }, 1000);
+                    if (timeOutRef.current) {
+                        clearTimeout(timeOutRef.current);
+                    }
+                    setIsHovered(false)
                 }}
                 onClick={onClick}
                 disabled={isButton}
