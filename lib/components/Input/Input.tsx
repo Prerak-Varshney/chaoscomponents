@@ -46,7 +46,14 @@ const Input = ({
     return (
         buttonStyle === 'google' ? (
             <div 
-                className={`relative w-fit ${disabled && 'opacity-70'}`}
+                className={
+                    `relative w-fit border border-transparent ${disabled && 'opacity-70'}
+                    ${rounded && rounded === 'none' && 'rounded-none'}
+                    ${rounded && rounded === 'sm' && 'rounded-sm'}
+                    ${rounded && rounded === 'md' && 'rounded-md'}
+                    ${rounded && rounded === 'lg' && 'rounded-lg'}
+                    ${rounded && rounded === 'full' && 'rounded-full'}
+                `}
                 style = {{ backgroundColor: bgColor }}
             >
                 <input 
@@ -95,7 +102,14 @@ const Input = ({
                 }
             </div>
         ) : (
-            <div className={`w-fit relative`}>
+            <div className={`
+                w-fit relative border border-transparent
+                ${rounded && rounded === 'none' && 'rounded-none'}
+                ${rounded && rounded === 'sm' && 'rounded-sm'}
+                ${rounded && rounded === 'md' && 'rounded-md'}
+                ${rounded && rounded === 'lg' && 'rounded-lg'}
+                ${rounded && rounded === 'full' && 'rounded-full'}
+            `}>
                 <input 
                     className={`
                         px-2 transition-all duration-300 disabled:opacity-70
