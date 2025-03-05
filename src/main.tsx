@@ -1,12 +1,12 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import App from './App.tsx'
-// import { ChaosComponents } from '../';
+import { ChaosComponents } from '../';
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    {/* <ChaosComponents> */}
+    <ChaosComponents>
       <App />
-    {/* </ChaosComponents> */}
+    </ChaosComponents>
   </StrictMode>,
 )
