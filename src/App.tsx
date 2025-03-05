@@ -9,6 +9,7 @@ const App = () => {
 
   return (
     <div className='flex items-center justify-center flex-col'>
+      <span className='text-blue-500 font-bold'>Hello World</span>
       <div className='h-4' />
 
       <Input 
