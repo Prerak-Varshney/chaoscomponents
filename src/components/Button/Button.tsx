@@ -12,6 +12,7 @@ interface ButtonProps {
     hoverBgColor?: string;
     hoverTextColor?: string;
     borderColor?: string;
+    children?: React.ReactNode;
 }
 
 const Button = ({ 
@@ -25,7 +26,8 @@ const Button = ({
     hoverBgColor = 'black',
     hoverTextColor = 'white',
     borderColor = 'transparent',
-    onClick 
+    onClick,
+    children,
 }: ButtonProps) => {
 
     const [paddingEnabled, setPaddingEnabled] = useState(true);
@@ -64,7 +66,9 @@ const Button = ({
             disabled={disabled}
             onClick={onClick}
         >
-            {label}
+            { label && label }
+
+            {children}
         </button>
     )
 }
