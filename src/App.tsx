@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Button, Input, Alert, Toast, ToolTip, Badge, AlertBox } from './index';
+import { Button, Input, Alert, Toast, ToolTip, Badge, AlertBox } from '../';
 
 const App = () => {
 
