@@ -21,7 +21,7 @@ interface ToastProps {
 const Toast = ({ 
     toastText, 
     toastHeading, 
-    rounded='sm', 
+    rounded='md', 
     bgColor='black', 
     textColor='white', 
     borderColor='white',
