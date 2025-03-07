@@ -23,7 +23,7 @@ const Button = ({
     bgColor = 'white',
     textColor = 'black',
     rounded = 'sm',
-    hoverBgColor = 'black',
+    hoverBgColor = 'rgb(0, 150, 255)',
     hoverTextColor = 'white',
     borderColor = 'transparent',
     onClick,
