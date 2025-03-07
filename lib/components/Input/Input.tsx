@@ -46,8 +46,8 @@ const Input = ({
     return (
         buttonStyle === 'google' ? (
             <div 
-                className={
-                    `relative w-fit border border-transparent ${disabled && 'opacity-70'}
+                className={`
+                    relative w-fit ${disabled && 'opacity-70'} border border-transparent
                     ${rounded && rounded === 'none' && 'rounded-none'}
                     ${rounded && rounded === 'sm' && 'rounded-sm'}
                     ${rounded && rounded === 'md' && 'rounded-md'}
@@ -103,7 +103,7 @@ const Input = ({
             </div>
         ) : (
             <div className={`
-                w-fit relative border border-transparent
+                relative w-fit border border-transparent
                 ${rounded && rounded === 'none' && 'rounded-none'}
                 ${rounded && rounded === 'sm' && 'rounded-sm'}
                 ${rounded && rounded === 'md' && 'rounded-md'}

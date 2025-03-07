@@ -32,6 +32,7 @@ const Button = ({
 
     const [paddingEnabled, setPaddingEnabled] = useState(true);
 
+
     useEffect(() => {
         if(width !== 'auto' || height !== 'auto') setPaddingEnabled(false);
     }, [width, height]);

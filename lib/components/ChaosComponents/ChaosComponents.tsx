@@ -6,7 +6,7 @@ interface ChaosComponentsProps {
 
 const ChaosComponents = ({ children }: ChaosComponentsProps) => {
     return (
-        <div className={`w-full min-h-screen bg-white`}>
+        <div className={`w-full min-h-screen bg-black`}>
             {children}
         </div>
     )

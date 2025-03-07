@@ -1,27 +1,42 @@
 import { defineConfig } from 'vite'
-import { resolve } from 'path'
 import react from '@vitejs/plugin-react'
-import dts from 'vite-plugin-dts'
-import tailwindcss from '@tailwindcss/vite'
-
+import dts from "vite-plugin-dts";
+import { resolve } from "path";
+import tailwindcss from "tailwindcss";
+import postcss from "postcss";
 
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [
     react(),
-    tailwindcss(),
-    dts({
-      tsconfigPath: resolve(__dirname, "tsconfig.lib.json"),
-    }),
+    dts({ 
+      tsconfigPath: "./tsconfig.app.json",
+      insertTypesEntry: true, 
+      rollupTypes: true
+    })
   ],
   build: {
     lib: {
-      entry: resolve(__dirname, 'lib/index.ts'),
-      formats: ['es']
+      entry: resolve(__dirname, "/lib/index.ts"),
+      name: "chaoscomponents",
+      fileName: (format) => `index.${format}.js`,
     },
-    copyPublicDir: false,
     rollupOptions: {
-      external: ['react', 'react/jsx-runtime'],
-    }
-  }
+      external: ["react", "react-dom", "tailwindcss"],
+      output: {
+        globals: {
+          react: "React",
+          "react-dom": "ReactDOM",
+          tailwindcss: "tailwindcss",
+        },
+      },
+    },
+    sourcemap: true,
+    emptyOutDir: true,
+  },
+  css: {
+    postcss: {
+      plugins: [tailwindcss, postcss()],
+    },
+  },
 })
