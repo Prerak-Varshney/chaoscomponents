@@ -14,8 +14,8 @@ interface InputProps {
     buttonStyle?: 'google' | 'normal';
     minLength?: number;
     maxLength?: number;
-    value?: string;
-    setValue?: (value: string) => void;
+    value: string;
+    setValue: (value: string) => void;
 }
 
 const Input = ({
@@ -26,10 +26,10 @@ const Input = ({
     bgColor = '#000',
     outlineColor = 'rgb(0, 150, 255)',
     textColor = 'white',
-    rounded = 'md',
+    rounded = 'sm',
     type = 'text',
     disabled = false,
-    borderColor = 'black',
+    borderColor = 'rgb(0, 150, 255)',
     minLength = 1,
     maxLength,
     value,
