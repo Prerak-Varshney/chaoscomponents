@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 
 interface ButtonProps {
-    label: string;
+    label?: string | React.ReactNode;
     width?: string;
     height?: string;
     disabled?: boolean;
@@ -66,9 +66,7 @@ const Button = ({
             disabled={disabled}
             onClick={onClick}
         >
-            { label && label }
-
-            {children}
+            {label || children}
         </button>
     )
 }
