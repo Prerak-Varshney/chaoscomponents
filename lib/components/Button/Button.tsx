@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 
 interface ButtonProps {
-    label: string;
+    label?: string | React.ReactNode;
     width?: string;
     height?: string;
     disabled?: boolean;
@@ -12,6 +12,7 @@ interface ButtonProps {
     hoverBgColor?: string;
     hoverTextColor?: string;
     borderColor?: string;
+    gap?: string;
     children?: React.ReactNode;
 }
 
@@ -26,12 +27,12 @@ const Button = ({
     hoverBgColor = 'rgb(0, 150, 255)',
     hoverTextColor = 'white',
     borderColor = 'transparent',
+    gap = '0px',
     onClick,
     children,
 }: ButtonProps) => {
 
     const [paddingEnabled, setPaddingEnabled] = useState(true);
-
 
     useEffect(() => {
         if(width !== 'auto' || height !== 'auto') setPaddingEnabled(false);
@@ -40,7 +41,7 @@ const Button = ({
     return (
         <button 
             className={`
-                transition-all duration-300 bg-blue-500 disabled:opacity-70
+                flex items-center justify-center relative transition-all duration-300 bg-blue-500 disabled:opacity-70
                 ${paddingEnabled && 'px-4 py-1'}
                 ${rounded && rounded === 'none' && 'rounded-none'}
                 ${rounded && rounded === 'sm' && 'rounded-sm'}
@@ -53,7 +54,8 @@ const Button = ({
                 color: textColor,
                 width: paddingEnabled ? 'auto' : width,
                 height: paddingEnabled ? 'auto' : height,
-                border: `1px solid ${borderColor}`
+                border: `1px solid ${borderColor}`,
+                gap: gap,
             }}
             onMouseEnter={(e) => {
                 e.currentTarget.style.backgroundColor = hoverBgColor;
@@ -66,9 +68,7 @@ const Button = ({
             disabled={disabled}
             onClick={onClick}
         >
-            { label && label }
-
-            {children}
+            {label || children}
         </button>
     )
 }

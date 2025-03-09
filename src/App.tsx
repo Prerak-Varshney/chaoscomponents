@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Button, Input, Alert, Toast, ToolTip, Badge, AlertBox, Collapsible } from '../';
+import { Button, Input, Alert, Toast, ToolTip, Badge, AlertBox, Collapsible } from '../lib';
 
 const App = () => {
 
@@ -157,7 +157,9 @@ const App = () => {
         // width='500px'
         // height='200px'
       />
+
       <div className='h-4' />
+
       <Collapsible 
         label='Collapsible'
         // borderColor='#fff'
@@ -171,6 +173,30 @@ const App = () => {
         // width='500px'
         // height='200px'
       />
+
+      <div className='h-4' />
+
+      <Button 
+        label={"Submit"}
+        width='200px'
+        height='40px'
+        disabled={false}
+        bgColor='#000'
+        textColor='#fff'
+        rounded={'sm'}
+        hoverBgColor='#444'
+        hoverTextColor='#fff'
+        borderColor='#fff'
+        onClick={() => {
+          setButtonClicked((prev) => !prev);
+        }}
+        gap='40px'
+      >
+        {/* <div className='w-10 h-full bg-red-500' />
+        <div className='w-10 h-full bg-blue-500' />
+        <div className='w-10 h-full bg-green-500' /> */}
+
+      </Button>
 
     </div>  
   )
