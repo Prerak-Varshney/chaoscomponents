@@ -1,14 +1,19 @@
-import React, { useState } from 'react';
-import { Button, Input, Alert, Toast, ToolTip, Badge, AlertBox, Collapsible } from '../lib';
+import React from 'react';
+import { Button, Input, Alert, Toast, ToolTip, Badge, AlertBox, Collapsible, Select } from '../lib';
 
 const App = () => {
 
-  const [name, setName] = useState<string>('');
-  const [password, setPassword] = useState<string>('');
-  const [buttonClicked, setButtonClicked] = useState<boolean>(false);
+  const [name, setName] = React.useState<string>('');
+  const [password, setPassword] = React.useState<string>('');
+  const [selected, setSelected] = React.useState<string[]>([]);
+  const [buttonClicked, setButtonClicked] = React.useState<boolean>(false);
+
+  React.useEffect(() => {
+    console.log(selected);
+  }, [selected])
 
   return (
-    <div className='flex items-center justify-center flex-col w-full h-screen'>
+    <div className='flex items-center justify-center flex-col w-full h-[200vh] bg-black'>
       <div className='h-4' />
 
       <Input 
@@ -17,9 +22,7 @@ const App = () => {
         value={name}
         setValue={setName}
         borderColor='#0af'
-        textColor='#000'
         outlineColor='#f00'
-        bgColor='#fff'
       />
 
       <div className='h-4' />
@@ -31,9 +34,7 @@ const App = () => {
         value={password}
         setValue={setPassword}
         borderColor='#0af'
-        textColor='#000'
         outlineColor='#f00'
-        bgColor='#fff'
       />
 
       <div className='h-4' />
@@ -104,9 +105,9 @@ const App = () => {
             label='This is an alert dialog box!!!'
             borderColor='#fff'
             bgColor='transparent'
-            // onClickOutside={() => {
-            //   setButtonClicked((prev) => !prev);
-            // }}
+            onClickOutside={() => {
+              setButtonClicked((prev) => !prev);
+            }}
             // width='500px'
             // height='200px'
           >
@@ -180,7 +181,6 @@ const App = () => {
       <div className='h-4' />
 
       <Button 
-        label={"Submit"}
         width='200px'
         height='40px'
         disabled={false}
@@ -195,11 +195,22 @@ const App = () => {
         }}
         gap='40px'
       >
-        {/* <div className='w-10 h-full bg-red-500' />
+        <div className='w-10 h-full bg-red-500' />
         <div className='w-10 h-full bg-blue-500' />
-        <div className='w-10 h-full bg-green-500' /> */}
-
+        <div className='w-10 h-full bg-green-500' />
       </Button>
+
+      <div className='h-4' />
+
+      <Select 
+        label='Select fruit'
+        optionsList={['Apple', 'Banana', 'Mango', 'Orange', 'Pineapple', 'Strawberry', 'Watermelon', 'Grapes', 'Kiwi', 'Papaya', 'Guava', 'Pomegranate', 'Jackfruit', 'Lemon', 'Lime', 'Lychee', 'Mandarin', 'Nectarine', 'Peach', 'Quince', 'Raspberry', 'Sapota', 'Tangerine', 'Ugli Fruit', 'Vinegar', 'Watermelon', 'Walnut', 'Yam', 'Zucchini khjas dkfjh kjsahdf kjhsa dkfjh skjdhf kjshad kfjh sakdjfh ksaljdhf kljsdh ']}
+        selectedOptions={selected}
+        setSelectedOptions={setSelected}
+        type='multiple'
+        rounded='sm'
+        optionsSeperatorColor='#444'
+      />
 
     </div>  
   )

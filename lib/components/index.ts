@@ -7,3 +7,4 @@ export { default as ToolTip } from './ToolTip';
 export { default as Badge } from './Badge';
 export { default as AlertBox } from './AlertBox';
 export { default as Collapsible } from './Collapsable';
+export { default as Select } from './Select';
