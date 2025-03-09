@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import { X } from 'lucide-react';
 
 interface AlertBoxProps {
@@ -14,6 +14,7 @@ interface AlertBoxProps {
     rounded?: 'none' | 'sm' | 'md' | 'lg' | 'full';
     isCrossEnabled?: boolean;
     onCrossClick?: () => void;
+    onClickOutside?: () => void;
     children?: React.ReactNode;
 }
 
@@ -30,26 +31,39 @@ const AlertBox = ({
     rounded = 'md',
     isCrossEnabled = false,
     onCrossClick,
+    onClickOutside,
     children
 }: AlertBoxProps) => {
 
     const [paddingEnabled, setPaddingEnabled] = useState(true);
+    const [alertBoxOpacity, setAlertBoxOpacity] = useState<string>('0');
+
+    const alertDialogBoxRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
         if(width !== 'fit-content' || height !== 'auto') setPaddingEnabled(false);
     }, [width, height]);
 
-    const [alertBoxOpacity, setAlertBoxOpacity] = useState<string>('0');
+    useEffect(() => {
+        // Handler to call on outside click of Dialog Box
+        const handleClickOutside = (event: MouseEvent) => {
+            if(alertDialogBoxRef.current && !alertDialogBoxRef.current.contains(event.target as Node)) {
+                onClickOutside?.();
+            }
+        }
+        document.addEventListener('mousedown', handleClickOutside);
+        return () => {
+            document.removeEventListener('mousedown', handleClickOutside);
+        };
+    }, [onClickOutside])
+
 
     useEffect(() => {
         setAlertBoxOpacity('1');
-
         document.body.style.overflow = 'hidden';
-        
         return () => {
             document.body.style.overflow = '';
         };
-
     }, []);
 
     return (
@@ -61,6 +75,7 @@ const AlertBox = ({
             }}
         >
             <div 
+                ref={alertDialogBoxRef}
                 className={`
                     flex flex-col items-center justify-center gap-2 text-base transition-all duration-300 relative
                     ${paddingEnabled && 'px-5 py-4'}

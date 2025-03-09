@@ -104,6 +104,9 @@ const App = () => {
             label='This is an alert dialog box!!!'
             borderColor='#fff'
             bgColor='transparent'
+            // onClickOutside={() => {
+            //   setButtonClicked((prev) => !prev);
+            // }}
             // width='500px'
             // height='200px'
           >
