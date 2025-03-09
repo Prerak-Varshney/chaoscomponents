@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { X } from 'lucide-react';
 
 interface AlertBoxProps {
     label?: string;
@@ -11,6 +12,8 @@ interface AlertBoxProps {
     bgBlurColor?: string;
     opacity?: string;
     rounded?: 'none' | 'sm' | 'md' | 'lg' | 'full';
+    isCrossEnabled?: boolean;
+    onCrossClick?: () => void;
     children?: React.ReactNode;
 }
 
@@ -22,9 +25,11 @@ const AlertBox = ({
     textColor = 'white',
     textSize,
     bgColor = 'gray',
-    bgBlurColor = '#002',
+    bgBlurColor = '#111',
     opacity = '0.8',
     rounded = 'md',
+    isCrossEnabled = false,
+    onCrossClick,
     children
 }: AlertBoxProps) => {
 
@@ -49,7 +54,7 @@ const AlertBox = ({
 
     return (
         <div 
-            className={`fixed top-0 w-full h-screen flex items-center justify-center z-[9999]`}
+            className={`fixed top-0 left-0 w-full h-screen flex items-center justify-center z-[9999]`}
             style={{
                 backgroundColor: bgBlurColor,
                 opacity,
@@ -57,7 +62,7 @@ const AlertBox = ({
         >
             <div 
                 className={`
-                    flex flex-col items-center justify-center gap-2 text-base transition-all duration-300
+                    flex flex-col items-center justify-center gap-2 text-base transition-all duration-300 relative
                     ${paddingEnabled && 'px-5 py-4'}
                     ${rounded && rounded === 'none' && 'rounded-none'}
                     ${rounded && rounded === 'sm' && 'rounded-sm'}
@@ -75,6 +80,16 @@ const AlertBox = ({
                     opacity: alertBoxOpacity,
                 }}
             >
+                {
+                    isCrossEnabled &&
+                    <button 
+                        className='absolute top-0 right-0 text-white text-2xl bg-transparent border border-transparent'
+                        onClick={onCrossClick}
+                    >
+                        <X size={16} />
+                    </button>
+                }
+
                 {label && <span>{label}</span>}
                 
                 {children}

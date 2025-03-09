@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Button, Input, Alert, Toast, ToolTip, Badge, AlertBox } from '../';
+import { Button, Input, Alert, Toast, ToolTip, Badge, AlertBox, Collapsible } from '../';
 
 const App = () => {
 
@@ -143,6 +143,34 @@ const App = () => {
 
           </AlertBox>
       }
+
+      <Collapsible 
+        label='Collapsible'
+        // borderColor='#fff'
+        // bgColor='transparent'
+        textColor='#000'
+        collapsibleLabel='This is collapsible content'
+        collapsibleTextColor='#000'
+        borderColor='#000'
+        hoverBgColor='#111'
+        hoverTextColor='#fff'
+        // width='500px'
+        // height='200px'
+      />
+      <div className='h-4' />
+      <Collapsible 
+        label='Collapsible'
+        // borderColor='#fff'
+        // bgColor='transparent'
+        textColor='#000'
+        collapsibleLabel='This is collapsible content'
+        collapsibleTextColor='#000'
+        borderColor='#000'
+        hoverBgColor='#111'
+        hoverTextColor='#fff'
+        // width='500px'
+        // height='200px'
+      />
 
     </div>  
   )
