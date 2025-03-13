@@ -1,54 +1,54 @@
-# React + TypeScript + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# Button
+The **Button** component is a customizable React button that supports various properties to modify its appearance and behavior. It can display a label or custom children, adjust its dimensions, colors, hover effects, border styles, and more.
 
-Currently, two official plugins are available:
+## Features
+- Customizable dimensions (width and height) and padding.
+- Dynamic hover effects for background and text colors.
+- Support for various border-radius options: `none`, `sm`, `md`, `lg`, and `full`.
+- Option to disable the button.
+- Ability to render custom child elements along with an optional label.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+## Usage
 ```
+import Button from './Button';
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+const App = () => {
+  return (
+    <div>
+      <Button 
+        label="Click Me"
+        onClick={() => console.log("Button clicked!")}
+        width="150px"
+        height="50px"
+        bgColor="#007BFF"
+        textColor="#FFF"
+        rounded="md"
+        hoverBgColor="#0056b3"
+        hoverTextColor="#FFF"
+        borderColor="#007BFF"
+        gap="8px"
+      />
+    </div>
+  );
+};
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
+export default App;
 ```
+## Props
+
+| Prop            | Type                                        | Default         | Description                                                    |
+|-----------------|---------------------------------------------|-----------------|----------------------------------------------------------------|
+| `label`         | `string \| React.ReactNode`                 | -               | Text or element to display inside the button.                  |
+| `width`         | `string`                                    | `auto`          | Width of the button.                                           |
+| `height`        | `string`                                    | `auto`          | Height of the button.                                          |
+| `disabled`      | `boolean`                                   | `false`         | Disables the button if set to true.                            |
+| `onClick`       | `function`                                | -               | Function to be called on button click.                         |
+| `bgColor`       | `string`                                    | `white`         | Background color of the button.                                |
+| `textColor`     | `string`                                    | `black`         | Text color of the button.                                      |
+| `rounded`       | `none \| sm \| md \| lg \| 'full'`    | `sm`            | Defines the border radius of the button.                       |
+| `hoverBgColor`  | `string`                                    | `rgb(0, 150, 255)` | Background color on hover.                                   |
+| `hoverTextColor`| `string`                                    | `white`         | Text color on hover.                                           |
+| `borderColor`   | `string`                                    | `transparent`   | Border color of the button.                                    |
+| `gap`           | `string`                                    | `0px`           | Gap between children elements inside the button.               |
+| `children`      | `React.ReactNode`                           | -               | Additional elements to render inside the button (optional).    |
